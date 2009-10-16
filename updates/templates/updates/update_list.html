@@ -1,0 +1,19 @@
+{% extends "updates/base.html" %}
+
+{% block masthead %}
+	<h1>Updates</h1>
+{% endblock %}
+
+{% block content %}
+
+{% for update in object_list %}
+	<div id="update{{ forloop.counter }}">
+		{% if update.title %}
+		<h2>{{ update.title }}</h2>
+		{% endif %}
+		{{ update.text }}
+		<div class="date">{{ update.pub_date|date:"F j, Y" }}</div>
+	</div>
+{% endfor %}
+
+{% endblock %}

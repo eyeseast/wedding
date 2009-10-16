@@ -29,3 +29,7 @@ class Update(models.Model):
         else:
             return self.text[:50]
 
+
+    @models.permalink
+    def get_absolute_url(self):
+        return ("updates_update_detail", None, {'object_id': self.id})
