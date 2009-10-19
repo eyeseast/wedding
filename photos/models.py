@@ -34,6 +34,11 @@ class Photo(models.Model):
         return self.url
     
     
+    def admin_thumbnail(self):
+        return u"<img src='%s' />" % self.square_url
+    admin_thumbnail.allow_tags = True
+    
+    
     @property
     def farm(self):
         if self.farm_id:
