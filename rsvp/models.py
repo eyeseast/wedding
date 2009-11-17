@@ -29,7 +29,8 @@ class RSVP(models.Model):
         ('yes', "Yes, we'll be there."),
         ('no', "Sorry, can't make it.")
     )
-    group_name = models.CharField(max_length=255)
+    group_name = models.CharField(max_length=255,
+        help_text="Optional. Leave this field blank to refer to this group by your first member's name.")
     response = models.CharField(max_length=5, choices=RESPONSE_CHOICES)
     date = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
@@ -46,8 +47,21 @@ class RSVP(models.Model):
         return self.group_name
 
 
+    def save(self):
+        if not self.group_name:
+            self.group_name = self.default_group_name()
+        super(RSVP, self).save()
+    
+    
+    def default_group_name(self):
+        guests = self.guests.all()
+        if guests:
+            name = u"% %s's group" % (guests[0].first_name, guests[0].last_name)
+            return name
+
+
 class Guest(models.Model):
-    group = models.ForeignKey(RSVP)
+    group = models.ForeignKey(RSVP, related_name="guests")
     user = models.ForeignKey(User, unique=True)
     
     # denormalized fields for simpler admin editing

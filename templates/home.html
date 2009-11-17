@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Chris and Laura are getting married{% endblock %}
+
+{% block content %}
+<div id="us-dc"><img src="{{ MEDIA_URL }}img/dc/dc3.jpg" width="500" /></div>
+<div id="update">
+	{% if update.title %}
+	<h2>{{ update.title %}</h2>
+	{% endif %}
+	{{ update.text|urlize|linebreaks }}
+	
+</div>
+{% endblock %}

@@ -11,8 +11,8 @@
 		{% if update.title %}
 		<h2>{{ update.title }}</h2>
 		{% endif %}
-		{{ update.text|linebreaks|urlize }}
-		<div class="date">{{ update.pub_date|date:"F j, Y // P" }} // {{ update.author }}</div>
+		{{ update.text|urlize|linebreaks }}
+		<div class="date">{{ update.pub_date|date:"F j, Y // P" }} // {{ update.author.first_name }}</div>
 	</div>
 {% endfor %}
 
