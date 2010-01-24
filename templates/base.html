@@ -1,55 +1,59 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 	<head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="verify-v1" content="5lTDnK1AMOp4IP9QXmu4FV4jz7NnDhfEKn7HGSKbjLo=" />
-		<title>{% block title %}Chris &amp; Laura's Wedding{% endblock %}</title>
+		<title>Chris and Laura</title>
 		{% block css %}
-			{% block css.shared %}
-			<link href="{{ MEDIA_URL }}blueprint-css/blueprint/screen.css" rel="stylesheet" type="text/css" media="screen, projection">
-			<link href="{{ MEDIA_URL }}blueprint-css/blueprint/print.css" rel="stylesheet" type="text/css" media="print">    
-			<!--[if IE]><link rel="stylesheet" href="{{ MEDIA_URL }}blueprint-css/blueprint/ie.css" type="text/css" media="screen, projection"><![endif]-->
-			{% endblock %}
-			{% block css.custom %}{% endblock %}
 		{% endblock %}
-		{% block js %}{% endblock %}
-		{% block feeds %}{% endblock %}
+		{% block js %}
+		{% endblock %}
 	</head>
-	<body {% block body_functions %}{% endblock %}>
+	<body>
+	<div id="header">
 		<div id="masthead" class="container">
 			{% block masthead %}
-			<h1>Chris &amp; Laura's Wedding</h1>
+			<h1>Chris and Laura</h1>
+			<div id="venue">
+				<h2 id="when">July 24, 2010</h2>
+				<h3 id="where" class="where">Windsor, CA</h3>
+				<p class="where">
+					<a href="/directions/">Getting there</a> |
+					<a href="/lodging/">Lodging</a>
+				</p>
+			</div>
 			{% endblock %}
 		</div>
-
-		<div id="content" class="container">
-			<div id="sidebar" class="span-6 colborder">
-			{% block sidebar %}
-			<ul>
-				<li>About us</li>
-				<li>Directions &amp; lodging</li>
+	</div>
+	<div id="main">
+		<div id="content">
+		{% block content %}
+			<ul class="photos">
+				<li class="photo">
+					<img src="{{ MEDIA_URL }}img/dc/dc1a.jpg" alt="Hi from DC" />
+				</li>
+				<li class="photo">
+					<img src="{{ MEDIA_URL }}img/dc/dc2a.jpg" alt="We'd like to say..." />
+				</li>
+				<li class="photo">
+					<img src="{{ MEDIA_URL }}img/dc/dc3a.jpg" alt="We're getting married" />
+				</li>
+				<li class="photo">
+					<img src="{{ MEDIA_URL }}img/dc/dc4a.jpg" alt="!" />
+				</li>
 			</ul>
-			{% endblock %}
-			</div>
-			<div id="main" class="span-17 last">
-			{% block content %}{% endblock %}
-			</div>
+			<p><a href="/photos/">More photos &rarr;</a></p>
 		</div>
-
-		<div id="footer" class="container clear prepend-top append-bottom">
-			{% block footer %}{% endblock %}
+		{% endblock %}
+	</div>
+	<div id="bottom">
+		<div id="footer">
+		{% block footer %}
+			<h3><a href="/details/">Details &amp; Directions</a></h3>
+			<h3><a href="/wedding-party/">Wedding Party</a></h3>
+			<h3><a href="/photos/">Photos</a></h3>
+			<h3><a href="/registry/">Registry</a></h3>
+		{% endblock %}
 		</div>
-		
-{% block analytics %}
-        <script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-try {
-var pageTracker = _gat._getTracker("UA-1576645-1");
-pageTracker._trackPageview();
-} catch(err) {}</script>
-{% endblock %}
+	</div>
 	</body>
 </html>
