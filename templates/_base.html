@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="verify-v1" content="5lTDnK1AMOp4IP9QXmu4FV4jz7NnDhfEKn7HGSKbjLo=" />
+		<title>{% block title %}Chris &amp; Laura's Wedding{% endblock %}</title>
+		{% block css %}
+			{% block css.shared %}
+			<link href="{{ MEDIA_URL }}blueprint/screen.css" rel="stylesheet" type="text/css" media="screen, projection">
+			<link href="{{ MEDIA_URL }}blueprint/print.css" rel="stylesheet" type="text/css" media="print">    
+			<!--[if IE]><link rel="stylesheet" href="{{ MEDIA_URL }}blueprint/ie.css" type="text/css" media="screen, projection"><![endif]-->
+			{% endblock %}
+			{% block css.custom %}{% endblock %}
+		{% endblock %}
+		{% block js %}{% endblock %}
+		{% block feeds %}{% endblock %}
+	</head>
+	<body>
+<div id="header">
+		<div id="masthead" class="container">
+			{% block masthead %}
+			<h1>Chris &amp; Laura's Wedding</h1>
+			{% endblock %}
+		</div>
+</div>
+<div id="main">
+		<div id="content" class="container">
+			<div id="sidebar" class="span-6 colborder">
+			{% block sidebar %}
+			<ul>
+				<li>About us</li>
+				<li>Directions &amp; lodging</li>
+			</ul>
+			{% endblock %}
+			</div>
+			<div id="main" class="span-17 last">
+			{% block content %}{% endblock %}
+			</div>
+		</div>
+</div>
+<div id="bottom">
+		<div id="footer" class="container clear prepend-top append-bottom">
+			{% block footer %}{% endblock %}
+		</div>
+</div>
+{% block analytics %}
+        <script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-1576645-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+{% endblock %}
+	</body>
+</html>
